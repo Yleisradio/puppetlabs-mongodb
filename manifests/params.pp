@@ -49,14 +49,10 @@ class mongodb::params inherits mongodb::globals {
       if $mongodb::globals::manage_package_repo {
         $user  = pick($user, 'mongodb')
         $group = pick($group, 'mongodb')
-        if $::mongodb::globals::version {
-          $server_package_name = pick("${::mongodb::globals::server_package_name}=${::mongodb::globals::version}", "mongodb-org-server-${::mongodb::globals::version}")
-          $client_package_name = pick("${::mongodb::globals::client_package_name}=${::mongodb::globals::version}", "mongodb-org-shell-${::mongodb::globals::version}")
-        }
-        else {
-          $server_package_name = pick($::mongodb::globals::server_package_name, 'mongodb-org-server')
-          $client_package_name = pick($::mongodb::globals::client_package_name, 'mongodb-org-shell')
-        }
+
+        $server_package_name = pick($::mongodb::globals::server_package_name, 'mongodb-org-server')
+        $client_package_name = pick($::mongodb::globals::client_package_name, 'mongodb-org-shell')
+
         $service_name = pick($::mongodb::globals::service_name, 'mongod')
         $config       = '/etc/mongod.conf'
         $dbpath       = '/var/lib/mongodb'
