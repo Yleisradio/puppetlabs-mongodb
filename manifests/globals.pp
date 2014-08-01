@@ -15,7 +15,7 @@ class mongodb::globals (
   $group                = undef,
   $bind_ip              = undef,
 
-  $version              = undef,
+  $version              = 'present',
 
   $manage_package_repo  = undef,
 ) {
