@@ -5,6 +5,7 @@ class mongodb::params inherits mongodb::globals {
   $service_ensure   = pick($service_ensure, 'running')
   $service_status   = $service_status
   $ensure_client    = true
+  $version          = pick($::mongodb::globals::version, 'present')
 
   # Amazon Linux's OS Family is 'Linux', operating system 'Amazon'.
   case $::osfamily {
