@@ -1,7 +1,7 @@
 # PRIVATE CLASS: do not call directly
 class mongodb::server::install {
   $package_name   = $mongodb::server::package_name
-  $version        = $::mongodb::globals::version
+  $version        = $mongodb::server::version
 
   package { 'mongodb_server':
     ensure  => $version,

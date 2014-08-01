@@ -17,6 +17,7 @@ class mongodb::server (
 
   $package_ensure  = $ensure,
   $package_name    = $mongodb::params::server_package_name,
+  $version         = $mongodb::params::version,
 
   $logpath         = $mongodb::params::logpath,
   $bind_ip         = $mongodb::params::bind_ip,
