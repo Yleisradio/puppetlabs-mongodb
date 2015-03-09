@@ -22,6 +22,7 @@ class mongodb::globals (
   $manage_package_repo  = undef,
 
   $use_enterprise_repo  = undef,
+  $mongodb_storage_engine = undef,
 ) {
 
   # Setup of the repo only makes sense globally, so we are doing it here.
