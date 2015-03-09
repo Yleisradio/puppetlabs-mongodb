@@ -170,10 +170,10 @@ class mongodb::params inherits mongodb::globals {
       }
       # avoid using fork because of the init scripts design
       $fork                    = undef
-      $mongos_pidfilepath      = undef
-      $mongos_unixsocketprefix = undef
-      $mongos_logpath          = undef
-      $mongos_fork             = undef
+      # $mongos_pidfilepath      = undef
+      # $mongos_unixsocketprefix = undef
+      # $mongos_logpath          = undef
+      # $mongos_fork             = undef
     }
     default: {
       fail("Osfamily ${::osfamily} and ${::operatingsystem} is not supported")
