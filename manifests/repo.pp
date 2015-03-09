@@ -26,6 +26,16 @@ class mongodb::repo (
         'Ubuntu' => 'http://downloads-distro.mongodb.org/repo/ubuntu-upstart',
         default  => undef
       }
+      $location30 = $::operatingsystem ? {
+        'Debian' => 'http://repo.mongodb.org/apt/debian',
+        'Ubuntu' => 'http://repo.mongodb.org/apt/ubuntu',
+        default  => undef
+      }
+      $repo30 = $::operatingsystem ? {
+        'Debian' => 'main',
+        'Ubuntu' => 'multiverse',
+        default  => undef
+      }
       class { 'mongodb::repo::apt': }
     }
 

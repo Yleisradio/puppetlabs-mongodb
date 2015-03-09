@@ -14,6 +14,14 @@ class mongodb::repo::apt inherits mongodb::repo {
       key_server  => 'hkp://keyserver.ubuntu.com:80',
       include_src => false,
     }
+    apt::source { 'repo.mongodb.org':
+      location    => $::mongodb::repo::location30,
+      release     => "${::lsbdistcodename}/mongodb-org/3.0",
+      repos       => $::mongodb::repo::repo30,
+      key         => '9ECBEC467F0CEB10',
+      key_server  => 'hkp://keyserver.ubuntu.com:80',
+      include_src => false,
+    }
 
     Apt::Source['downloads-distro.mongodb.org']->Package<|tag == 'mongodb'|>
   }
