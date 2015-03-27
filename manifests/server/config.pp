@@ -87,6 +87,8 @@ class mongodb::server::config {
       $cfg_content = $config_content
     } elsif (versioncmp($mongodb::globals::version, '2.6.0') >= 0) {
       $cfg_content = template('mongodb/mongodb.conf.2.6.erb')
+    } elsif (versioncmp($mongodb::globals::version, '3.0.0') >= 0) {
+      $cfg_content = template('mongodb/mongodb.conf.3.0.erb')
     } else {
       $cfg_content = template('mongodb/mongodb.conf.erb')
     }
