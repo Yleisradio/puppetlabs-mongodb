@@ -38,9 +38,6 @@ processManagement.pidFilePath: <%= @pidfilepath %>
 
 #Storage
 storage.dbPath: <%= @dbpath %>
-<% if @storageengine -%>
-storage.engine: <%= @storageengine %>
-<% end -%>
 <% if @nojournal -%>
 storage.journal.enabled: false
 <% elsif @journal -%>
