@@ -17,7 +17,7 @@ class mongodb::repo (
         }
         $description = 'MongoDB/10gen Repository'
       }
-      class { 'mongodb::repo::yum': }
+      class { '::mongodb::repo::yum': }
     }
 
     'Debian': {

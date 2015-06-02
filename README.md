@@ -169,6 +169,14 @@ This setting can be used to override the default status check command for
 your MongoDB service. If not specified, the module will use whatever service
 name is the default for your OS distro.
 
+##### `mongod_service_manage`
+This setting can be used to override the default management of the mongod service.
+By default the module will manage the mongod process.
+
+##### `mongos_service_manage`
+This setting can be used to override the default management of the mongos service.
+By default the module will manage the mongos process.
+
 #####`user`
 This setting can be used to override the default MongoDB user and owner of the
 service and related files in the file system. If not specified, the module will
@@ -178,6 +186,10 @@ use the default for your OS distro.
 This setting can be used to override the default MongoDB user group to be used
 for related files in the file system. If not specified, the module will use
 the default for your OS distro.
+
+#####`ipv6`
+This setting is used to configure MongoDB to turn on ipv6 support. If not specified
+and ipv6 address is passed to MongoDB bind_ip it will just fail.
 
 #####`bind_ip`
 This setting can be used to configure MonogDB process to bind to and listen
@@ -216,6 +228,10 @@ If not specified, the module will use the default for your OS distro.
 Specify the path to a file name for the log file that will hold all diagnostic
 logging information. Unless specified, mongod will output all log information
 to the standard output.
+
+#####`ipv6`
+This setting has to be true to configure MongoDB to turn on ipv6 support. If not specified
+and ipv6 address is passed to MongoDB bind_ip it will just fail.
 
 #####`bind_ip`
 Set this option to configure the mongod or mongos process to bind to and listen
@@ -414,6 +430,13 @@ Default: <>
 #####`ssl_ca`
 Default: <>
 
+#####`service_manage`
+Whether or not the MongoDB service resource should be part of the catalog.
+Default: true
+
+#####`restart`
+Specifies whether the service should be restarted on config changes. Default: 'true'
+
 ####Class: mongodb::mongos
 class. This class should only be used if you want to implement sharding within
 your mongodb deployment.
@@ -433,6 +456,10 @@ Path to the config template if the default doesn't match one needs.
 
 #####`configdb`
 Array of the config servers IP addresses the mongos should connect to.
+
+#####`service_manage`
+Whether or not the MongoDB sharding service resource should be part of the catalog.
+Default: true
 
 #####`service_name`
 This setting can be used to override the default Mongos service name. If not
@@ -460,6 +487,9 @@ This setting can be used to specify if puppet should install the package or not
 #####`package_name`
 This setting can be used to specify the name of the package that should be installed.
 If not specified, the module will use whatever service name is the default for your OS distro.
+
+#####`restart`
+Specifies whether the service should be restarted on config changes. Default: 'true'
 
 ### Definitions
 
